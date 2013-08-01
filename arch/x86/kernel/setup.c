@@ -210,6 +210,7 @@ unsigned long mmu_cr4_features;
 #else
 unsigned long mmu_cr4_features = X86_CR4_PAE;
 #endif
+EXPORT_SYMBOL_GPL(mmu_cr4_features);
 
 /* Boot loader ID and version as integers, for the benefit of proc_dointvec */
 int bootloader_type, bootloader_version;

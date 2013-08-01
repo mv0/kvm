@@ -121,6 +121,7 @@ int kernel_text_address(unsigned long addr)
 		return 1;
 	return is_module_text_address(addr);
 }
+EXPORT_SYMBOL_GPL(kernel_text_address);
 
 /*
  * On some architectures (PPC64, IA64) function pointers

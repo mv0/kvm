@@ -487,10 +487,12 @@ static int init_syscall_trace(struct ftrace_event_call *call)
 struct trace_event_functions enter_syscall_print_funcs = {
 	.trace		= print_syscall_enter,
 };
+EXPORT_SYMBOL_GPL(enter_syscall_print_funcs);
 
 struct trace_event_functions exit_syscall_print_funcs = {
 	.trace		= print_syscall_exit,
 };
+EXPORT_SYMBOL_GPL(exit_syscall_print_funcs);
 
 struct ftrace_event_class __refdata event_class_syscall_enter = {
 	.system		= "syscalls",
@@ -499,7 +501,7 @@ struct ftrace_event_class __refdata event_class_syscall_enter = {
 	.get_fields	= syscall_get_enter_fields,
 	.raw_init	= init_syscall_trace,
 };
-
+EXPORT_SYMBOL_GPL(event_class_syscall_enter);
 struct ftrace_event_class __refdata event_class_syscall_exit = {
 	.system		= "syscalls",
 	.reg		= syscall_exit_register,
@@ -507,6 +509,7 @@ struct ftrace_event_class __refdata event_class_syscall_exit = {
 	.fields		= LIST_HEAD_INIT(event_class_syscall_exit.fields),
 	.raw_init	= init_syscall_trace,
 };
+EXPORT_SYMBOL_GPL(event_class_syscall_exit);
 
 unsigned long __init __weak arch_syscall_addr(int nr)
 {
